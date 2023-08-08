@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\T2_Convert2Kelvin.props" />
+</Project>

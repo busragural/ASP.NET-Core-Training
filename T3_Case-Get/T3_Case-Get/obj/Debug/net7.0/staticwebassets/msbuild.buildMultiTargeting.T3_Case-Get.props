@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\T3_Case-Get.props" />
+</Project>

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\T1_Environments-Configuration.props" />
+</Project>

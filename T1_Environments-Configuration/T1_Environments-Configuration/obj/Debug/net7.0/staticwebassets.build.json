@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "H62/bRKeKJV9cYGpPq1vVEvQqxPTS6Aqp7wTnoc0I+k=",
+  "Source": "T1_Environments-Configuration",
+  "BasePath": "_content/T1_Environments-Configuration",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
