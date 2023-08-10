@@ -31,3 +31,7 @@ C:\Users\busra.gural\Desktop\.net\01_Responses\01_Responses\obj\Debug\net7.0\ref
 C:\Users\busra.gural\Desktop\.net\01_Responses\01_Responses\obj\Debug\net7.0\01_Responses.pdb
 C:\Users\busra.gural\Desktop\.net\01_Responses\01_Responses\obj\Debug\net7.0\01_Responses.genruntimeconfig.cache
 C:\Users\busra.gural\Desktop\.net\01_Responses\01_Responses\obj\Debug\net7.0\ref\01_Responses.dll
+C:\Users\busra.gural\Desktop\.net\01_Responses\01_Responses\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\busra.gural\Desktop\.net\01_Responses\01_Responses\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\busra.gural\Desktop\.net\01_Responses\01_Responses\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\busra.gural\Desktop\.net\01_Responses\01_Responses\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll

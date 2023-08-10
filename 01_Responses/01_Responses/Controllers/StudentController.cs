@@ -1,4 +1,5 @@
 ﻿using _00_Basics.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using System.Xml.Linq;
@@ -49,10 +50,14 @@ namespace _00_Basics.Controllers
             return Ok(AllStudents.Students.FirstOrDefault(i => i.Name == name));
            
         }
-        [HttpDelete("{id}", Name="DeleteStudent")]
+        [HttpDelete("Delete/{id}", Name="DeleteStudent")]
         public bool DeleteStudent(int id)
         {
             var deleted = AllStudents.Students.FirstOrDefault(i => i.Id == id);
+            if(deleted == null)
+            {
+                return false;
+            }
             AllStudents.Students.Remove(deleted);
             return true;
         }
@@ -78,6 +83,58 @@ namespace _00_Basics.Controllers
             //status - 201
             return CreatedAtRoute("GetStudentbyId", new { id = model.Id }, model);  //prepare the url based on the data 
            
+        }
+
+        [HttpPut]
+        [Route("Update")]
+        public ActionResult UpdateStudent([FromBody]Student model)
+        {
+            if(model == null || model.Id <= 0)
+            {
+                BadRequest();
+            }
+            var existing = AllStudents.Students.FirstOrDefault(i => i.Id == model.Id);
+            if(existing == null)
+            {
+                return NotFound();
+            }
+            existing.Name = model.Name;
+            existing.Address = model.Address;
+            existing.Email = model.Email;
+            return NoContent();
+        }
+
+        [HttpPatch]
+        [Route("{id:int}/UpdatePartial")]
+        public ActionResult UpdateStudentPartial(int id, [FromBody] JsonPatchDocument<Student> patchDocument)  //install newtonsoft json nuget and add this line to support patch
+        {
+            if (patchDocument == null || id <= 0)
+            {
+                BadRequest();
+            }
+            var existing = AllStudents.Students.FirstOrDefault(i => i.Id == id);
+            if (existing == null)
+            {
+                return NotFound();
+            }
+            var tmpStudent = new Student
+            {
+                Id = existing.Id,
+                Name = existing.Name,
+                Address = existing.Address,
+                Email = existing.Email,
+            };
+
+            patchDocument.ApplyTo(tmpStudent, ModelState);  //if there is a error, modelstate shows us
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            existing.Name = tmpStudent.Name;
+            existing.Address = tmpStudent.Address;
+            existing.Email = tmpStudent.Email;
+            return NoContent();
         }
     }
 }
