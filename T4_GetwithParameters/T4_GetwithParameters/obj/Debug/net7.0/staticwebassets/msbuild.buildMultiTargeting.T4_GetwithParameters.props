@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\T4_GetwithParameters.props" />
+</Project>
