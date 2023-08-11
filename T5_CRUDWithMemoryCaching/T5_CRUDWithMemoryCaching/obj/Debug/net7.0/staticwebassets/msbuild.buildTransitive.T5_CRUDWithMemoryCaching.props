@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\T5_CRUDWithMemoryCaching.props" />
+</Project>
