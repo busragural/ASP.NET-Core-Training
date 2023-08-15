@@ -135,5 +135,20 @@ namespace Tasks.Controllers
             return NotFound();
         }
 
+        [HttpDelete]
+        [Route("ClearCache")]
+        public ActionResult AllDelete()
+        {
+            var cachedData = _cache.Get("dummyData") as List<DummyData>;
+            if (cachedData != null)
+            {
+                cachedData = null;
+                _cache.Set("dummyData", cachedData);
+                return Ok();
+            }
+
+            return NoContent();
+        }
+
     }
 }
